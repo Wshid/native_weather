@@ -1,11 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello! My First React-Native App in Emulator!!</Text>
+        <View style={styles.redView}/>
+        <View style={styles.yellowView}/>
+        <View style={styles.redView}/>
+        <View style={styles.yellowView}/>
+        <View style={styles.redView}/>
+        <View style={styles.yellowView}/>
+        <View style={styles.redView}/>
+        <View style={styles.yellowView}/>
+        <View style={styles.redView}/>
+        <View style={styles.yellowView}/>
+        <View style={styles.redView}/>
+        <View style={styles.yellowView}/>
+        <View style={styles.redView}/>
+        <View style={styles.yellowView}/>
+        <View style={styles.redView}/>
+        <View style={styles.yellowView}/>
       </View>
     );
   }
@@ -15,7 +30,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent:'space-around', // 세로정렬 : center
+    alignItems:'flex-end', // 가로정렬 : center
+    flexDirection:'row',
+    flexWrap:'wrap'
   },
+  redView:{
+    //flex:1,
+    height:50,
+    width:50,
+    backgroundColor:'red',
+    alignSelf:'flex-start'
+  },
+  yellowView:{
+    //flex:6,
+    height:50,
+    width:50,
+    backgroundColor:'yellow'
+  }
 });
