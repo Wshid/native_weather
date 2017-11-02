@@ -2,25 +2,18 @@ import React from 'react';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 
 export default class App extends React.Component {
+  state={
+    isLoaded:false // 상태 확인
+  }
   render() {
+    const {isLoaded} = this.state;
     return (
       <View style={styles.container}>
-        <View style={styles.redView}/>
-        <View style={styles.yellowView}/>
-        <View style={styles.redView}/>
-        <View style={styles.yellowView}/>
-        <View style={styles.redView}/>
-        <View style={styles.yellowView}/>
-        <View style={styles.redView}/>
-        <View style={styles.yellowView}/>
-        <View style={styles.redView}/>
-        <View style={styles.yellowView}/>
-        <View style={styles.redView}/>
-        <View style={styles.yellowView}/>
-        <View style={styles.redView}/>
-        <View style={styles.yellowView}/>
-        <View style={styles.redView}/>
-        <View style={styles.yellowView}/>
+        {isLoaded? null:
+          <View style={styles.loading}>
+            <Text style={styles.loadingText}>Getting the weather </Text>
+          </View>
+        }
       </View>
     );
   }
@@ -30,22 +23,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent:'space-around', // 세로정렬 : center
-    alignItems:'flex-end', // 가로정렬 : center
-    flexDirection:'row',
-    flexWrap:'wrap'
   },
-  redView:{
-    //flex:1,
-    height:50,
-    width:50,
-    backgroundColor:'red',
-    alignSelf:'flex-start'
+  loading:{
+    flex:1,
+    backgroundColor:'#FDF6AA',
+    justifyContent:'flex-end',
+    paddingLeft:25
   },
-  yellowView:{
-    //flex:6,
-    height:50,
-    width:50,
-    backgroundColor:'yellow'
+  loadingText:{
+    fontSize:38,
+    marginBottom:100
   }
 });
