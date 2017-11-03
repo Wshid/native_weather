@@ -1,18 +1,23 @@
 import React from 'react';
 import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import Weather from "./Weather";
 
 export default class App extends React.Component {
   state={
-    isLoaded:false // 상태 확인
+    isLoaded:true // 상태 확인
   }
   render() {
     const {isLoaded} = this.state;
     return (
       <View style={styles.container}>
-        {isLoaded? null:
-          <View style={styles.loading}>
-            <Text style={styles.loadingText}>Getting the weather </Text>
-          </View>
+        {isLoaded?
+          (
+            <Weather />
+          ) : (
+            <View style={styles.loading}>
+              <Text style={styles.loadingText}>Getting the weather </Text>
+            </View>
+          )
         }
       </View>
     );
