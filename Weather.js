@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View } from 'react-native';
 import {LinearGradient} from "expo";// View인데 배경이 Gradient를 의미
+import {Ionicons} from "@expo/vector-icons"; // Ionicons 로드
 
 export default class Weather extends Component{
   render(){ // LinearGradient는 color와 스타일이 필요함
@@ -10,7 +11,7 @@ export default class Weather extends Component{
         style={styles.container}
       >
         <View style={styles.upper}>
-          <Text>Icon here!</Text>
+          <Ionicons color="white" size={144} name="ios-rainy" />
           <Text style={styles.temp}> 35</Text>
         </View>
         <View style={styles.lower}>
@@ -29,10 +30,11 @@ const styles=StyleSheet.create({
   upper:{
     flex:1,
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'center',
+    backgroundColor:"transparent"
   },
   temp:{
-    fontSize:38,
+    fontSize:48,
     backgroundColor:"transparent",
     color:'white',
     marginTop:10
