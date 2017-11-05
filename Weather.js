@@ -31,7 +31,7 @@ const styles=StyleSheet.create({
     flex:1,
     alignItems:'center',
     justifyContent:'center',
-    backgroundColor:"transparent"
+    backgroundColor:"transparent" // 배경색을 투명으로 해야 아이콘이 출력됨
   },
   temp:{
     fontSize:48,
