@@ -23,6 +23,7 @@ export default class App extends React.Component {
       }
     );
   }
+
   _getWeather=(lat, long)=>{
     fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&APPID=${API_KEY}`
     )
@@ -39,13 +40,13 @@ export default class App extends React.Component {
 
 
   render() {
-    const {isLoaded, error} = this.state;
+    const {isLoaded, error, temperature, name} = this.state;
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
         {isLoaded?
           (
-            <Weather />
+            <Weather weatherName={name} temp={Math.floor(temperature-273.15)}/>// 화씨 사용시, Math.floor({temperature - 273.15})
           ) : (
             <View style={styles.loading}>
               <Text style={styles.loadingText}>Getting the weather </Text>
